@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="cust" abstract="true" class="com.khadri.spring.core.collection.merge.Customer">
+        <property name="order">
+            <props>
+                <prop key="veg">Idly</prop>
+                <prop key="nonveg">Biryani</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="primeCust" parent="cust" class="com.khadri.spring.core.collection.merge.PrimeCustomer">
+        <property name="order">
+            <props merge="true">
+                <prop key="curry">groundnut curry</prop>
+                <prop key="nonveg">Mutton Biryani</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

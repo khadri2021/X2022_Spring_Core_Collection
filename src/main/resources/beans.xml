@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="std" class="com.khadri.spring.core.collection.Student">
+        <property name="id" value="100"/>
+        <property name="name" value="JHON"/>
+        <property name="addressList">
+            <description>All addresses</description>
+            <list>
+                <ref bean="add1"/>
+                <ref bean="add2"/>
+            </list>
+        </property>
+        <property name="subjectSet">
+            <description>All  subjects </description>
+            <set>
+                <ref bean="java"/>
+                <ref bean="collection"/>
+                <ref bean="spring"/>
+            </set>
+        </property>
+        <property name="subjectFacultyMap">
+            <map>
+                <entry key-ref="java" value-ref="fac1"/>
+                <entry key-ref="spring" value-ref="fac2"/>
+            </map>
+        </property>
+        <property name="grade">
+            <props>
+                <prop key="grade">A</prop>
+            </props>
+        </property>
+    </bean>
+    <bean id="add1" class="com.khadri.spring.core.collection.Address">
+        <property name="type" value="0"/>
+        <property name="streetName" value="BANDARU_NAGAR"/>
+        <property name="landMark" value="Royal Enfield Show Room"/>
+    </bean>
+    <bean id="add2" class="com.khadri.spring.core.collection.Address">
+        <property name="type" value="1"/>
+        <property name="streetName" value="Vani Street"/>
+        <property name="landMark" value="Saibaba Temple"/>
+    </bean>
+    <bean id="java" class="com.khadri.spring.core.collection.Subject">
+        <property name="name" value="Java"/>
+        <property name="author" value="James Gosling"/>
+    </bean>
+    <bean id="collection" class="com.khadri.spring.core.collection.Subject">
+        <property name="name" value="collection framework"/>
+        <property name="author" value="Joshua Bloch"/>
+    </bean>
+    <bean id="spring" class="com.khadri.spring.core.collection.Subject">
+        <property name="name" value="spring framework"/>
+        <property name="author" value="Rod Jhon"/>
+    </bean>
+
+    <bean id="fac1"  class="com.khadri.spring.core.collection.Faculty">
+        <property name="name" value="JHON"/>
+    </bean>
+
+    <bean id="fac2"  class="com.khadri.spring.core.collection.Faculty">
+        <property name="name" value="ALLEN"/>
+    </bean>
+</beans>
